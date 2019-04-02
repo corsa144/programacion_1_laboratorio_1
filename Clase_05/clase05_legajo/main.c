@@ -8,7 +8,8 @@ int main()
     float nota1[CANT];
     float nota2[CANT];
     float nota3[CANT];
-    int i;
+    int max,min,i,datos[i];
+
 
     for(i=0;i<CANT;i++){
         printf("Ingrese legajo:\n");
@@ -28,5 +29,30 @@ int main()
 
 
 
+
+
+    for(i=0;i<CANT;i++){
+
+        if(i==0||datos[i]>max){
+            max=datos[i];
+        }
+        if(i==0||datos[i]<min){
+            min=datos[i];
+        }
+    }
     return 0;
 }
+
+int vec[CANT]={2,7,6,3,8};
+int i,j,aux;
+for(i=0;i<CANT;i++){
+    for(j=i+1;j<CANT;j++){
+        if(vec[i]>vec[j]){
+            aux=vec[i];
+            vec[i]=vec[j];
+            vec[j]=aux;
+        }
+    }
+}
+
+
