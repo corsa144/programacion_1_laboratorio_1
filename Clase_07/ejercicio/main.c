@@ -33,6 +33,8 @@ int main()
         switch(opcion){
         case 1:
             alta(legajo,apellido,nombre...)
+        case 2:
+            baja(legajo,estado,CANT)
         }
     }while();
     printf("Ingrese el legajo a dar de alta:");
@@ -55,4 +57,32 @@ int main()
         printf("");
         scanf();
         return
+    }
+    void baja(int legajo[],int estado[],int cantidad){
+        char rta;
+        int legajoAux,i,flag=0;
+
+        printf("legajo a buscar:");
+        scanf("%d",&legajoAux)
+        for(i=0;i<cantidad;i++){
+            if(legajo[i]==legajoAux){
+                printf("%d",legajo);
+                do{
+                printf("dar de baja el registro s/n?");
+                fflush(stdin);
+                scanf("%c",&rta);
+                rta=toupper(rta);
+                }while(rta!='s'&&rta!='n');
+                flag=1;
+                if(rta=='s'){
+                    estado[i]=0;
+                    break;
+                }else{
+                    printf("no se dio de baja el registro");
+                }
+            }
+           if(flag==0) {
+            printf("legajo inexistente");
+           }
+        }
     }
