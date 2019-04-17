@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1555458896 source:d:\nueva carpeta\clase09_estructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"personas.h"
+
+1555457109 d:\nueva carpeta\clase09_estructuras\personas.h
+
+1555458874 source:d:\nueva carpeta\clase09_estructuras\personas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"personas.h"
+
