@@ -1,35 +1,87 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include "persona.h"
 
 void alta( ePersona pers[], int cantidad ){
-    int i;
+    int i=0,legajoAux,flag,j;
+    char rta;
 
-    for( i = 0; i < cantidad; i++ ){
-        printf("Apellido:\n");
-        fflush(stdin);
-        scanf("%s", pers[i].apellido);
+        do{
+            do{
+                printf("Legajo:\n");
+                scanf("%d",&legajoAux);
+                flag=0;
+                for (j=0;j<cantidad;j++){
+                    if (pers[j].legajo==legajoAux&&pers[j].isEmpty==0){
 
-        printf("Nombre:\n");
-        fflush(stdin);
-        scanf("%s", pers[i].nombre);
+                        printf("Es un legajo existente\n");
+                        flag=1;
+                        break;
+                }
+            }
+            }while(flag==1);
 
-        printf("Edad:\n");
-        scanf("%d", &pers[i].edad);
+            pers[i].legajo=legajoAux;
 
-        pers[i].isEmpty = 0;
-    }
+            printf("Apellido:\n");
+            fflush(stdin);
+            scanf("%s", pers[i].apellido);
+
+            printf("Nombre:\n");
+            fflush(stdin);
+            scanf("%s", pers[i].nombre);
+
+            printf("Edad:\n");
+            scanf("%d", &pers[i].edad);
+
+            pers[i].isEmpty = 0;
+
+            i++;
+
+            if (i<cantidad) {
+                printf("Desea seguir?[S/N]");
+                fflush(stdin);
+                scanf("%c",&rta);
+                rta=toupper(rta);
+            }
+
+        }while(rta=='S'&&i<cantidad);
+
 }
 
 void mostrarTodos( ePersona pers[], int cantidad ){
     int i;
 
     for( i = 0; i < cantidad; i++ ){
-        mostrarUno(pers[i]);
+        if (pers[i].isEmpty==0){
+            mostrarUno(pers[i]);
+        }
+
     }
 
 }
 
 void mostrarUno( ePersona per ){
-        printf("%s\t%s\t%d\t%d\n", per.apellido, per.nombre, per.edad, per.isEmpty);
+        printf("%d\t%s\t%s\t%d\t%d\n",per.legajo, per.apellido, per.nombre, per.edad, per.isEmpty);
+}
+
+void baja( ePersona pers[], int cantidad){
+
+    int legajoAux,i;
+
+    printf("Ingrese legajo a dar de baja:\n");
+    scanf("%d",&legajoAux);
+
+    for (i=0;i<cantidad;i++){
+
+            if (legajoAux==pers[i].legajo){
+
+                pers[i].isEmpty=1;
+                break;
+            }
+
+
+    }
 }

@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 #include "persona.h"
 
 #define CANT 3
@@ -8,7 +10,7 @@ int main(){
     int opcion;
     ePersona pers[CANT];
     do{
-        printf("ingrese:\n 1.alta:\n2.mostrar\n3.salir\n");
+        printf("ingrese:\n1.alta:\n2.mostrar\n3.Baja\n4.Salir\n");
         scanf("%d",&opcion);
         switch(opcion){
         case 1:
@@ -20,11 +22,17 @@ int main(){
             mostrarTodos(pers, CANT);
             break;
         case 3:
+
+            baja( pers, CANT );
+
+            break;
+        case 4:
+
             break;
 
         }
 
-    }while(opcion>=1&&opcion<=2);
+    }while(opcion>=1&&opcion<=3);
 
 
 

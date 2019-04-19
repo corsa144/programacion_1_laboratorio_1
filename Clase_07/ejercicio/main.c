@@ -159,12 +159,12 @@ int main()
                         case 1:
                             printf("Ingrese nuevo apellido:\n");
                             fflush(stdin);
-                            scanf("%s",apellido[i]);
+                            fgets(apellido[i],sizeof(apellido[i])-2,stdin);
                             break;
                         case 2:
                             printf("Ingrese nuevo nombre:\n");
                             fflush(stdin);
-                            scanf("%s",nombre[i]);
+                            fgets(nombre[i],sizeof(nombre[i])-2,stdin);
                             break;
                         case 3:
                             printf("Ingrese nueva edad:\n");
@@ -172,6 +172,10 @@ int main()
                             scanf("%d",&edad[i]);
                             break;
                         case 4:
+                            printf("termino de modificar?");
+                            fflush(stdin);
+                            scanf("%d",&opcion);
+
                             break;
                     }
                 }while(opcion>=1&&opcion<=3);
@@ -188,34 +192,34 @@ int main()
         int legajoAux,edadAux,estadoAux, i, j;
         for(i=0;i<cantidad-1;i++){
             for(j=i+1;j<cantidad;j++){
-                strcat(apellidoAuxI,strupr(apellido[i]));
-                strcat(apellidoAuxJ,strupr(apellido[j]));
-                printf("apellido[%d]: %s", i, apellido[i]);
-                printf("apellido[%d]: %s", j, apellido[j]);
+                //strcat(apellidoAuxI,strupr(apellido[i]));
+                //strcat(apellidoAuxJ,strupr(apellido[j]));
+                //printf("apellido[%d]: %s", i, apellido[i]);
+               // printf("apellido[%d]: %s", j, apellido[j]);
 
-                if(apellido[i]>apellido[j]){
+                if(strcmp(apellido[i],apellido[j])>0){
 
-                printf("apellido");
+                //printf("apellido");
                     strcpy(apellidoAux,apellido[j]);
                     strcpy(apellido[j],apellido[i]);
                     strcpy(apellido[i],apellidoAux);
 
-                printf("nombre");
+               // printf("nombre");
                     strcpy(nombreAux,nombre[j]);
                     strcpy(nombre[j],nombre[i]);
                     strcpy(nombre[i],nombreAux);
 
-                printf("lrgajo");
+                //printf("lrgajo");
                     legajoAux=legajo[j];
                     legajo[j]=legajo[i];
                     legajo[i]=legajoAux;
 
-                printf("edad");
+               // printf("edad");
                     edadAux=edad[j];
                     edad[j]=edad[i];
                     edad[i]=edadAux;
 
-                printf("estado");
+                //printf("estado");
                     estadoAux=estado[j];
                     estado[j]=estado[i];
                     estado[i]=estadoAux;
@@ -223,10 +227,14 @@ int main()
             }
         }
 
-                printf("listado");
-        system("cls");
+               // printf("listado");
+        //system("cls");
         printf("La lista ordenada por apellido es:\n");
         for(int i=0;i<cantidad;i++){
-            printf("%s %s %d %d",apellido[i],nombre[i],legajo[i],edad[i]);
+            //printf("%s %s %d %d",apellido[i],nombre[i],legajo[i],edad[i]);
+            printf("%s",apellido[i]);
+            printf("%s",nombre[i]);
+            printf("%d",legajo[i]);
+            printf("%d",edad[i]);
         }
     }
