@@ -85,3 +85,37 @@ void baja( ePersona pers[], int cantidad){
 
     }
 }
+
+void modificacion (ePersona pers[],int cantidad){
+
+    int legajoAux,i,flag=0;
+
+    printf("Ingrese el legajo a modificar:\n");
+    scanf("%d",&legajoAux);
+
+    for(i=0;i<cantidad;i++){
+
+        if (legajoAux==pers[i].legajo&&pers[i].isEmpty==0){
+
+            mostrarUno(pers[i]);
+
+            printf("Apellido:\n");
+            fflush(stdin);
+            scanf("%s", pers[i].apellido);
+
+            printf("Nombre:\n");
+            fflush(stdin);
+            scanf("%s", pers[i].nombre);
+
+            printf("Edad:\n");
+            scanf("%d", &pers[i].edad);
+
+            flag=1;
+        }
+    }
+    if (flag==0){
+
+        printf("No se encontro el legajo\n");
+        system("pause");
+    }
+}
