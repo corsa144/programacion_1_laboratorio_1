@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1555371378 source:d:\nueva carpeta\clase08\main.c
+	<stdio.h>
+	<stdlib.h>
+	"persona.h"
+
+1555371244 d:\nueva carpeta\clase08\persona.h
+
