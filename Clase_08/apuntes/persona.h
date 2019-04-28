@@ -6,13 +6,7 @@ typedef struct{
     int legajo;
 }ePersona;
 
-void alta( ePersona pers[], int cantidad );
-
-void mostrarUno( ePersona per );
-
-void mostrarTodos( ePersona pers[], int cantidad );
-
-void baja(ePersona pers[], int cantidad);
+void alta(ePersona pers[], int cantidad);
 
 void modificacion (ePersona pers[], int cantidad);
 
