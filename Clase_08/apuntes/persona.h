@@ -15,3 +15,11 @@ void mostrarTodos( ePersona pers[], int cantidad );
 void baja(ePersona pers[], int cantidad);
 
 void modificacion (ePersona pers[], int cantidad);
+
+char getChar(char mensaje[]);
+
+int getInt(char mensaje[]);
+
+float getFloat(char mensaje[]);
+
+char* getString(char mensaje[]);
